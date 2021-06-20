@@ -1,5 +1,3 @@
-<div style="text-align:center"><img width="300px" src="doc/jeitto.svg" /></div>
-
 # Truco
 
 ## Documentação importante:
@@ -16,7 +14,7 @@ git clone git@github.com:Phill-Andrade/truco.git
 
 Atualize o remote
 ```sh
-git remote set-url origin gitlab.jeitto.com.br:datascience/behaviour.git
+git remote set-url origin git@github.com:Phill-Andrade/truco.git
 ```
 
 Crie uma branch homolog
