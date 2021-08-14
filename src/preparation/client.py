@@ -2,7 +2,6 @@ import random
 
 from src.utils.constants import SUIT, VALUE_CARD
 
-
 def generate_deck():
     deck = list()
     for value in VALUE_CARD:
@@ -53,10 +52,17 @@ def order_player(starter, players):
     return order
 
 
-def turn_manilha(deck):
+def turn_manilha(deck, value_card):
     choice_manilha = deck.index(random.choice(deck))
-    manilha = deck.pop(choice_manilha)
-    return manilha
+    upset = deck.pop(choice_manilha)
+    index_suit = upset[1]
+    index_value = value_card.index(upset[0])
+    if int(index_value) < 9:
+        index_value = index_value + 1
+    elif int(index_value) == 9:
+        index_value = 0
+    manilha = str(value_card[index_value]) + index_suit
+    return manilha, upset
 
 
 def distribute_card(deck, players):
@@ -72,6 +78,7 @@ def game_preparation():
     players = generate_player(4)
     distribute_team(players)
     starter = starter_player(players)
-    order_player(starter, players)
-    turn_manilha(deck)
+    order = order_player(starter, players)
+    manilha, upset = turn_manilha(deck, VALUE_CARD)
     distribute_card(deck, players)
+    return players, order, manilha, upset
