@@ -82,8 +82,3 @@ def game_preparation():
     manilha, upset = turn_manilha(deck, VALUE_CARD)
     distribute_card(deck, players)
     return players, order, manilha, upset
-
-
-deck = generate_deck()
-card = turn_manilha(deck, VALUE_CARD)
-print(card)
